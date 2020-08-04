@@ -10,3 +10,4 @@ exec grafana-server                                         \
   cfg:default.paths.plugins="$GF_PATHS_PLUGINS"             \
   cfg:default.paths.provisioning="$GF_PATHS_PROVISIONING"
 
+## THE CODE ABOVE WAS TAKEN FROM https://github.com/grafana/grafana-docker/blob/master/run.sh#L74#L82
