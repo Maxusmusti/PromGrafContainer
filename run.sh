@@ -8,5 +8,6 @@ exec grafana-server                                         \
   cfg:default.paths.data="$GF_PATHS_DATA"                   \
   cfg:default.paths.logs="$GF_PATHS_LOGS"                   \
   cfg:default.paths.plugins="$GF_PATHS_PLUGINS"             \
-  cfg:default.paths.provisioning="$GF_PATHS_PROVISIONING"
-
+  cfg:default.paths.provisioning="$GF_PATHS_PROVISIONING"  #&
+#sleep 1 && python3 prom_ds.py
+#&& python3 prom_ds.py ; python3 prom_ds.py #& python3 prom_ds.py ;
