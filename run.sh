@@ -11,3 +11,5 @@ exec grafana-server                                         \
   cfg:default.paths.provisioning="$GF_PATHS_PROVISIONING"  #&
 #sleep 1 && python3 prom_ds.py
 #&& python3 prom_ds.py ; python3 prom_ds.py #& python3 prom_ds.py ;
+
+## THE CODE ABOVE WAS TAKEN FROM https://github.com/grafana/grafana-docker/blob/master/run.sh#L74#L82
