@@ -1,6 +1,19 @@
 import json
 import requests
 import subprocess
+import time
+
+graf_base = "http://localhost:3000/"
+
+#ADD A WHILE LOOP CHECKER
+while True:
+    try:
+        response = requests.get(graf_base)
+        if response.status_code == 200:
+            break
+    except:
+        #print(response.status_code)
+        time.sleep(0.1)
 
 tokenholder = open("key.txt", 'w')
 args = ['curl', 'http://localhost:3000/api/auth/keys', '-XPOST', '-uadmin:admin', '-H', 'Content-Type: application/json', '-d', '{"role":"Admin","name":"new_api_key"}']
@@ -13,13 +26,9 @@ token_raw = tokenholder.readline()
 tokenholder.close()
 token_dict = json.loads(token_raw)
 print(token_dict["key"])
-
 token = token_dict["key"]
-#token = "eyJrIjoiWExadXNCUlNNT3NaQW1wUGtxeVdCNjZURDhQMDEwUWgiLCJuIjoibmV3X2FwaV9rZXkiLCJpZCI6MX0="
 
-graf_base = "http://localhost:3000/"
 headers = {"Content-Type": "application/json", "Authorization": f"Bearer {token}"}
-
 
 prom_source_url = f"{graf_base}api/datasources"
 message = {"name":"prometheus", "type":"prometheus", "url":"http://localhost:9090", "access":"proxy", "basicAuth":False}
