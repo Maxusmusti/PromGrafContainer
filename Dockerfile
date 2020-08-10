@@ -5,10 +5,13 @@ RUN pip3 install requests
 RUN wget -P /opt/ https://github.com/prometheus/prometheus/releases/download/v2.18.1/prometheus-2.18.1.linux-amd64.tar.gz
 RUN tar xf /opt/prometheus-2.18.1.linux-amd64.tar.gz
 RUN rm -f /prometheus-2.18.1.linux-amd64/prometheus.yml
-ADD prometheus.yml /prometheus-2.18.1.linux-amd64/
+ADD prometheus.yml . 
+#/prometheus-2.18.1.linux-amd64/
 ADD prometheus_data/prom_vol /data
 ADD prom_ds.py .
 ADD nodefull.json .
+ADD dcgm.json .
+ADD combo.json .
 
 RUN dnf -y install https://dl.grafana.com/oss/release/grafana-7.1.1-1.x86_64.rpm
 
