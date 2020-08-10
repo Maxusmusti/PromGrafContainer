@@ -43,7 +43,14 @@ else:
     print(json.loads(response.content.decode('utf-8')))
 
 dashboard_url = f"{graf_base}api/dashboards/import"
-#message =
+
 response = requests.post(dashboard_url, headers=headers, data=open('nodefull.json', 'rb'))
 print(json.loads(response.content.decode('utf-8')))
+
+response = requests.post(dashboard_url, headers=headers, data=open('combo.json', 'rb'))
+print(json.loads(response.content.decode('utf-8')))
+
+response = requests.post(dashboard_url, headers=headers, data=open('dcgm.json', 'rb'))
+print(json.loads(response.content.decode('utf-8')))
+
 
