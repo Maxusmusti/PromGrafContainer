@@ -4,7 +4,8 @@ RUN yum install -y wget pip && \
     pip3 install requests && \
     wget -P /opt/ https://github.com/prometheus/prometheus/releases/download/v2.18.1/prometheus-2.18.1.linux-amd64.tar.gz && \
     tar xf /opt/prometheus-2.18.1.linux-amd64.tar.gz && \
-    rm -f /prometheus-2.18.1.linux-amd64/prometheus.yml
+    rm -f /prometheus-2.18.1.linux-amd64/prometheus.yml && \
+    yum -y clean all && rm -rf /var/cache/yum/* && rm -rf ~/.cache/pip/*
     
 ADD prometheus.yml /prometheus-2.18.1.linux-amd64/
 ADD prometheus_data/prom_vol /data
