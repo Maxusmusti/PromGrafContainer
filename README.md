@@ -1,7 +1,7 @@
 # PromGrafContainer
 
--Available at quay.io/pbench/prom-graf-visualizer
--A tool available to visualize Prometheus data collected through Pbench after a benchmark run
+- Available at quay.io/pbench/prom-graf-visualizer
+- A tool available to visualize Prometheus data collected through Pbench after a benchmark run
 
 -Directions:
   -   `podman pull pbench/prom-graf-visualizer`
