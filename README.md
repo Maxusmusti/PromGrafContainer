@@ -5,6 +5,6 @@
 
 - Directions:
   -   `podman pull pbench/prom-graf-visualizer`
-  -   `podman run -p 3000:3000 -p 9090:9090 -v absolute/path/to/prometheus_data/prom_vol:/data:Z -v absolute/path/to/prometheus.yml/prometheus.yml:Z pbench/prom-graf-visualizer`
+  -   `podman run -p 3000:3000 -p 9090:9090 -v absolute/path/to/prometheus_data/prom_vol:/data:Z -v absolute/path/to/prometheus.yml:/prometheus.yml:Z pbench/prom-graf-visualizer`
 
 - NOTE: both prometheus_data (from tarball) and prometheus.yml (in tm dir) are available within pbench results.
