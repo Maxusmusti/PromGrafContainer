@@ -9,8 +9,6 @@ exec grafana-server                                         \
   cfg:default.paths.data="$GF_PATHS_DATA"                   \
   cfg:default.paths.logs="$GF_PATHS_LOGS"                   \
   cfg:default.paths.plugins="$GF_PATHS_PLUGINS"             \
-  cfg:default.paths.provisioning="$GF_PATHS_PROVISIONING" #&
-#python3 prom_ds.py &
-
+  cfg:default.paths.provisioning="$GF_PATHS_PROVISIONING"
 
 ## THE CODE ABOVE TO LAUNCH GRAFANA WAS TAKEN FROM https://github.com/grafana/grafana-docker/blob/master/run.sh#L74#L82
