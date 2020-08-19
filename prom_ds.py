@@ -12,13 +12,11 @@ while True:
         if response.status_code == 200:
             break
     except:
-        #print(response.status_code)
         time.sleep(0.1)
 
 tokenholder = open("key.txt", 'w')
 args = ['curl', 'http://localhost:3000/api/auth/keys', '-XPOST', '-uadmin:admin', '-H', 'Content-Type: application/json', '-d', '{"role":"Admin","name":"new_api_key"}']
-process = subprocess.run(args, stdout=tokenholder)#, stderr=tokenholder)
-#print(tokenholder)
+process = subprocess.run(args, stdout=tokenholder)
 tokenholder.close()
 
 tokenholder = open("key.txt", 'r')
@@ -33,13 +31,10 @@ headers = {"Content-Type": "application/json", "Authorization": f"Bearer {token}
 prom_source_url = f"{graf_base}api/datasources"
 message = {"name":"prometheus", "type":"prometheus", "url":"http://localhost:9090", "access":"proxy", "basicAuth":False}
 response = requests.post(prom_source_url, headers=headers, json=message)
-#response = requests.get(prom_source_url, headers=headers)
-
 
 if response.status_code == 200:
     print(json.loads(response.content.decode('utf-8')))
 else:
-    #print(response.content.decode('utf-8'))
     print(json.loads(response.content.decode('utf-8')))
 
 dashboard_url = f"{graf_base}api/dashboards/import"
