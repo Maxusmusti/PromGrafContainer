@@ -2,13 +2,16 @@ FROM fedora:latest
 
 WORKDIR /
 
+ENV PROM_VERSION=2.18.1 \
+    GRAFANA_VERSION=7.1.1-1
+
 RUN yum install -y wget pip && \
     pip3 install requests && \
-    wget -P /opt/ https://github.com/prometheus/prometheus/releases/download/v2.18.1/prometheus-2.18.1.linux-amd64.tar.gz && \
-    tar xf /opt/prometheus-2.18.1.linux-amd64.tar.gz && \
-    rm -f /prometheus-2.18.1.linux-amd64/prometheus.yml && \
+    wget -P /opt/ https://github.com/prometheus/prometheus/releases/download/v${PROM_VERSION}/prometheus-${PROM_VERSION}.linux-amd64.tar.gz && \
+    tar xf /opt/prometheus-${PROM_VERSION}.linux-amd64.tar.gz && \
+    rm -f /prometheus-${PROM_VERSION}.linux-amd64/prometheus.yml && \
     yum -y clean all && rm -rf /var/cache/yum/* && rm -rf ~/.cache/pip/* && \
-    dnf -y install https://dl.grafana.com/oss/release/grafana-7.1.1-1.x86_64.rpm && \
+    dnf -y install https://dl.grafana.com/oss/release/grafana-${GRAFANA_VERSION=7.1.1-1}.x86_64.rpm && \
     mkdir data
     
 ADD prometheus.yml .
