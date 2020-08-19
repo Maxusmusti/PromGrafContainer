@@ -1,5 +1,7 @@
 FROM fedora:latest
 
+WORKDIR /
+
 RUN yum install -y wget pip && \
     pip3 install requests && \
     wget -P /opt/ https://github.com/prometheus/prometheus/releases/download/v2.18.1/prometheus-2.18.1.linux-amd64.tar.gz && \
@@ -28,7 +30,6 @@ ENV PATH=/usr/share/grafana/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bi
 EXPOSE 3000
 EXPOSE 9090
 
-WORKDIR /
 COPY run.sh .
 
 RUN chmod +x run.sh
