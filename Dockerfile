@@ -3,7 +3,7 @@ FROM fedora:latest
 WORKDIR /
 
 ENV PROM_VERSION=2.18.1 \
-    GRAFANA_VERSION=7.1.1-1
+    GRAFANA_VERSION=7.3.6-1
 
 RUN yum install -y wget pip && \
     pip3 install requests && \
